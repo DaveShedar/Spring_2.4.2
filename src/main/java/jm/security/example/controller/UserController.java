@@ -14,10 +14,7 @@ public class UserController {
     @GetMapping(value = "/user")
     public String getHomePage(Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("id", user.getId());
-        model.addAttribute("username", user.getUsername());
-        model.addAttribute("password", user.getPassword());
-        model.addAttribute("roles", user.getRoles());
+        model.addAttribute("user", user);
         return "user";
     }
 }
